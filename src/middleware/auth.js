@@ -13,7 +13,7 @@ const userAuth = async (req, res, next) => {
     const h = req.headers.authorization;
     if (!token && h?.startsWith('Bearer ')) token = h.slice(7).trim();
 
-    if (!token) return res.status(401).json({ message: 'Please login first' });
+    if (!token) return res.status(401).send('Please login first');
 
     let decoded;
     try {
